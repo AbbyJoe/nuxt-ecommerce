@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import navbar from '@/components/navbar'
+import navbar from '@/components/UI/navbar'
 export default {
   components: {
     navbar
@@ -15,5 +15,7 @@ export default {
 }
 </script>
 <style>
-
+html {
+  font-family: 'Inter', sans-serif;
+}
 </style>
