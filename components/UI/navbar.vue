@@ -5,7 +5,7 @@
                 <location-icon></location-icon>
                 <span class="text-base font-medium">City</span>
            </div>
-            <logo></logo>
+            <nuxt-link to="/"><logo></logo></nuxt-link>
             <div class="flex space-x-4">
                 <search-icon></search-icon>
                 <cart-icon></cart-icon>

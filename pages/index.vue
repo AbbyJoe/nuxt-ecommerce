@@ -7,7 +7,7 @@
       <arrow-icon></arrow-icon>
     </div>
     <div class="px-10 py-10 grid grid-cols-1 gap-10 md:grid-cols-3 text-center">
-      <product-layout v-for="product in products" :key="product.id" :title="product.title" :image="product.image" :price="product.price"></product-layout>
+      <product-layout v-for="product in products" :id="product.id" :key="product.id" :title="product.title" :image="product.image" :price="product.price"></product-layout>
     </div>
     <banner></banner>
     <appFooter></appFooter>
@@ -39,10 +39,10 @@ export default {
       await this.getProducts()
   },
   methods: {
-      async getProducts() {
-          const response = await this.$axios.$get('https://fakestoreapi.com/products?limit=6')
-          this.products = response
-      }
+    async getProducts() {
+        const response = await this.$axios.$get('https://fakestoreapi.com/products?limit=6')
+        this.products = response
+    }
   }
 }
 </script>
