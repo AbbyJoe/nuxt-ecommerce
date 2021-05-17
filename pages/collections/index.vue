@@ -10,7 +10,7 @@
             </div>
             <transition name="fade">
                 <div class="px-10">
-                    <div v-if="showCategories" class="absolute shadow-md w-1/6 mt-3">
+                    <div v-if="showCategories" class="absolute shadow-md md:w-1/6 w-26 mt-3">
                         <div class="py-3 bg-white cursor-pointer hover:bg-green hover:text-white px-4" v-for="category in categories" :key="category">
                             <p @click="getCateg(category)">{{category}}</p>
                         </div>
