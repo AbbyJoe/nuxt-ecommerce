@@ -13,9 +13,9 @@
        </div>
        <section class="container mx-auto flex-wrap space-x-10 py-3 pb-10 flex justify-center">
            <nuxt-link to="/" class="text-green">Home</nuxt-link>
-           <nuxt-link to="/products" class="text-green">Products</nuxt-link>
-           <nuxt-link to="/about-us" class="text-green">About Us</nuxt-link>
-           <nuxt-link to="/services" class="text-green">Services</nuxt-link>
+           <nuxt-link to="/collections" class="text-green">Collections</nuxt-link>
+           <!-- <nuxt-link to="/about-us" class="text-green">About Us</nuxt-link> -->
+           <!-- <nuxt-link to="/services" class="text-green">Services</nuxt-link> -->
            <nuxt-link to="/contact" class="text-green">Contact</nuxt-link>
        </section>
     </div>
