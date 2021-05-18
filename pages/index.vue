@@ -7,10 +7,9 @@
       <arrow-icon></arrow-icon>
     </div>
     <div class="px-10 py-10 grid grid-cols-1 gap-10 md:grid-cols-3 text-center">
-      <product-layout v-for="product in products" :id="product.id" :key="product.id" :title="product.title" :image="product.image" :price="product.price"></product-layout>
+      <product-layout v-for="product in allProducts" :id="product.id" :key="product.id" :title="product.title" :image="product.image" :price="product.price"></product-layout>
     </div>
     <banner></banner>
-    <appFooter></appFooter>
   </section>
 </template>
 
@@ -18,9 +17,9 @@
 import ArrowIcon from '../components/icons/arrowIcon.vue'
 import BannerHeader from '../components/UI/banner-header.vue'
 import banner from '../components/UI/banner.vue'
-import appFooter from '../components/UI/appFooter.vue'
 import productLayout from '../components/UI/product-layout.vue'
 import Services from '../components/UI/services.vue'
+import {mapState, mapActions} from 'vuex'
 export default {
   components: { 
     productLayout,
@@ -28,26 +27,40 @@ export default {
     banner,
     ArrowIcon,
     BannerHeader,
-    appFooter
   },
   data() {
       return {
-      products: []
       }
   },
+   computed: {
+    ...mapState(['allProducts']),
+  },
   async mounted() {
-      await this.getProducts()
+      await this.getAllproducts()
   },
   methods: {
-    async getProducts() {
-        const response = await this.$axios.$get('https://fakestoreapi.com/products?limit=6')
-        this.products = response
-    }
+    ...mapActions(['getAllproducts']),
   }
 }
 </script>
 
 <style>
-
+  /* spinner */
+    #loading {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #00CB6F;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+  @keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+  }
 
 </style>
