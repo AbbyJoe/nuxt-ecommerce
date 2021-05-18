@@ -17,49 +17,53 @@
                     </div>
                 </div>
             </transition>
-            <div class="px-10 py-10 grid grid-cols-1 gap-10 md:grid-cols-3 text-center">
+            <div v-if="loading" class="text-center mt-5">
+                <div id="loading"></div>
+            </div>
+            <div v-if="!loading" class="px-10 py-10 grid grid-cols-1 gap-10 md:grid-cols-3 text-center">
                 <product-layout v-for="product in products" :id="product.id" :key="product.id" :title="product.title" :image="product.image" :price="product.price"></product-layout>
             </div>
             <banner></banner>
-            <app-footer></app-footer>
         </section>
     </div>
 </template>
 
 <script>
-import AppFooter from '../../components/UI/appFooter.vue'
 import Banner from '../../components/UI/banner.vue'
 import productLayout from '../../components/UI/product-layout.vue'
+import {mapActions, mapState} from 'vuex'
 export default {
-  components: { productLayout, Banner, AppFooter },
+  components: { productLayout, Banner },
     data() {
     return {
-    categories: [],
-    products: [],
-    name:'All',
-    showCategories: false
+        name:'All',
+        showCategories: false,
+        products: [],
+        loading: false
     }
   },
+  computed:{
+    ...mapState(['categories']),
+  },
   async mounted() {
-      await this.getProductCateg(),
+      await this.getCategory(),
       await this.getCateg()
-      await this.getProduct()
+      await this.getProducts()
   },
   methods: {
-      async getProductCateg() {
-          const response = await this.$axios.$get('https://fakestoreapi.com/products/categories')
-          this.categories = response
-      },
-      async getProduct() {
-        const response = await this.$axios.$get('https://fakestoreapi.com/products')
-        this.products = response
+    ...mapActions(['getCategory']),
+    async getProducts() {
+        this.loading = true
+        const res = await this.$axios.$get('products')
+        this.products = res
+        this.loading = false
     },
-      async getCateg(categ) {
-          const res = await this.$axios.$get(`https://fakestoreapi.com/products/category/${categ}`)
-          this.products = res
-          this.name = categ
-          this.showCategories = false
-      }
+    async getCateg(categ) {
+        const res = await this.$axios.$get(`products/category/${categ}`)
+        this.products = res
+        this.name = categ
+        this.showCategories = false
+    }
   }
 }
 </script>
