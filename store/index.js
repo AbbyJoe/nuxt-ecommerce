@@ -68,25 +68,25 @@ export const state = () => ({
   export const actions = {
     //get all products
     async getAllproducts({ commit }) {
-        const response = await this.$axios.$get(`products?limit=6`)
+        const response = await this.$axios.$get(`https://fakestoreapi.com/products?limit=6`)
         commit('SET_ALL_PRODUCTS', response)
         return response
     },
     //get products No limit
     async getProducts({ commit }) {
-      const response = await this.$axios.$get(`products`)
+      const response = await this.$axios.$get(`https://fakestoreapi.com/products`)
       commit('GET_PRODUCTS', response)
       return response
   },
     //get single product
     async getSingleProduct({commit}, id) {
-        const response = await this.$axios.$get(`products/${id}`)
+        const response = await this.$axios.$get(`https://fakestoreapi.com/products/${id}`)
         commit('SET_PRODUCTS', response)
         return response
     },
     //GET ALL CATEGORIES
     async getCategory({commit}) {
-      const response = await this.$axios.$get(`products/categories`)
+      const response = await this.$axios.$get(`https://fakestoreapi.com/products/categories`)
       commit('GET_CATEGORIES', response)
       return response
   }
