@@ -40,10 +40,10 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: process.env.API,
+    baseURL: process.env.API,
   },
   publicRuntimeConfig: {
-    // baseURL: process.env.NODE_ENV === 'production' ? 'https://fakestoreapi.com/' : ''
+    baseURL: process.env.API
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
