@@ -4,9 +4,8 @@
             <logo class="mx-auto md:mx-0"></logo>
             <section class="grid gap-4 py-3 md:pb-10 pb-3">
                 <nuxt-link to="/" class="text-black">Home</nuxt-link>
-                <nuxt-link to="/products" class="text-black">Products</nuxt-link>
+                <nuxt-link to="/collections" class="text-black">Collections</nuxt-link>
                 <nuxt-link to="/about-us" class="text-black">About Us</nuxt-link>
-                <nuxt-link to="/services" class="text-black">Services</nuxt-link>
                 <nuxt-link to="/contact" class="text-black">Contact</nuxt-link>
                 <p class="font-light text-sm">&copy; CASSIOPEIA 2021</p>
             </section>
