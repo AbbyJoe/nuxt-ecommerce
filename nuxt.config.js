@@ -21,7 +21,11 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [`~/plugins/currency-filter.js`],
+  // plugins: [`~/plugins/currency-filter.js`],
+  plugins: [
+    {src: '~/plugins/currency-filter.js'},
+    { src: '~/plugins/vue-paystack', ssr: false }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -48,6 +52,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['vue-paystack'],
   },
   server: {
     port: 8000, // default: 3000
