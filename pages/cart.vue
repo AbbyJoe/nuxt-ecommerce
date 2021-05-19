@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-    <section v-else class="text-center">
+    <section v-else class="text-center pb-14">
       <p class="text-xl pt-8 pb-4">Your cart is empty, fill it up!</p>
         <nuxt-link to="/" class="text-green">Back Home</nuxt-link>
       <button>
