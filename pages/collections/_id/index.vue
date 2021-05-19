@@ -22,7 +22,7 @@
             <p class="font-light text-lg">Price: {{ singleProduct.price | dollar}}</p>
             <p class="font-light text-xl py-3">Category: {{singleProduct.category}}</p>
             <p class="text-lg font-light">Description: {{singleProduct.description}}</p>
-            <p class="pt-6 text-lg">Count:</p>
+            <p class="pt-6 text-lg">Quantity:</p>
             <div class="flex space-x-4 items-center py-3">
                 <div class="rounded-full cursor-pointer bg-gray text-center text-green flex items-center justify-center text-lg font-semibold h-8 w-8" @click="quantity > 0 ? quantity-- : quantity = 0">-</div>
                 <p>{{quantity}}</p>

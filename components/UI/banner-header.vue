@@ -5,7 +5,7 @@
         <h1 class="text-white font-bold text-5xl pt-2">Sales up To <span class="italic text-green font-light">50% off</span></h1>
         <p class="text-white text-xl font-thin py-3">Discover the latest addictions to our amazing collections...</p>
         <nuxt-link to="/collections">
-          <button type="button" class="btn bg-green text-white rounded-sm focus:outline-none focus:ring focus:border-blue-300 mt-3 font-semibold px-4 md:px-10 md:py-4 py-3">SHOP COLLECTION</button>
+          <button type="button" class="btn bg-green text-white rounded-sm focus:outline-none focus:ring focus:border-blue-300 mt-3 font-semibold px-4 md:px-10 md:py-4 py-3">SHOP COLLECTIONS</button>
         </nuxt-link>
       </div>
     </div>
