@@ -19,7 +19,7 @@
         </div>
         <div>
             <p class="font-semibold text-2xl py-3">{{ singleProduct.title}}</p>
-            <p class="font-light text-lg">Price: {{ singleProduct.price}}</p>
+            <p class="font-light text-lg">Price: {{ singleProduct.price | dollar}}</p>
             <p class="font-light text-xl py-3">Category: {{singleProduct.category}}</p>
             <p class="text-lg font-light">Description: {{singleProduct.description}}</p>
             <p class="pt-6 text-lg">Count:</p>
