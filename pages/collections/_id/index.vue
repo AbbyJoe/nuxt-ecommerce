@@ -2,8 +2,8 @@
 <section>
     <section class="px-10 md:pt-10">
         <transition name="fade">
-            <div v-if="success" class="fixed top-14 right-10 p-3 flex justify-between items-center bg-green text-white w-1/4 text-left rounded-md">
-                <p class="text-lg">{{success}}</p>
+            <div v-if="success" class="fixed space-x-4 top-8 right-4 md:top-14 md:right-10 p-3 flex justify-between items-center bg-green text-white md:w-1/4 text-left rounded-md">
+                <p class="text-lg font-light">{{success}}</p>
                 <p class="cursor-pointer rounded-full opacity-75 cursor-pointer bg-red text-center text-white flex items-center justify-center text-lg h-6 w-6">x</p>
             </div>
         </transition>

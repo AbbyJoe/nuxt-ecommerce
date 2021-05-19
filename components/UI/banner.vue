@@ -3,7 +3,7 @@
       <h1 class="tracking-wide uppercase text-4xl font-semibold text-white">Get ready for summer</h1>
       <p class="px-5 leading-relaxed italic py-4 text-white font-extralight md:w-1/2 mx-auto">We are CASSIOPEIA, a concept born to extend the legacy of clothing Factory, we create wears that focuses on both comfort and aesthetics.</p>
       <nuxt-link to="/collections">
-          <button type="button" class="btn bg-green text-white rounded-sm focus:outline-none focus:ring focus:border-green-300 mt-3 font-semibold px-10 py-4 uppercase">View COLLECTIONs</button>
+          <button type="button" class="btn bg-green text-white rounded-sm focus:outline-none focus:ring focus:border-green-300 mt-3 font-semibold px-4 md:px-10 md:py-4 py-3 uppercase">View COLLECTIONs</button>
       </nuxt-link>
     </div>
 </template>

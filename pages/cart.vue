@@ -18,7 +18,7 @@
                             </div>
                         </div>
                     </div>
-                <div class="mt-0 md:mt-4 flex md:items-end items-center md:flex-col flex-row">
+                <div class="mt-0 md:mt-4 flex md:items-end items-center gap-6 md:flex-col flex-row">
                     <div class="text-base font-semibold text-left md:text-right">Price: <span>{{item.price | dollar}}</span></div>
                     <div class="text-base font-semibold text-left py-4 md:text-right">Total: <span>{{ (item.quantity * item.price) | dollar }}</span></div>
                     <div class="cursor-pointer text-right" @click="removeAllFromCart(item)">
