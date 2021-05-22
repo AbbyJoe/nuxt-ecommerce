@@ -31,6 +31,7 @@
                 <a href="https://twitter.com/Abby_joeRGX"><img src="../../assets/twitter.svg" class="inline w-auto h-8" alt=""></a>
                 <a href="https://www.instagram.com/abbyjoe___/"><img src="../../assets/instagram.svg" class="inline w-auto h-8" alt=""></a>
             </div>
+            <p class="pt-3 text-center">Made with ❤️ Abiodun Arigbede</p>
         </div>
     </section>
 </template>
