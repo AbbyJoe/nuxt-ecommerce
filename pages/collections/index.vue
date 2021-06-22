@@ -49,6 +49,8 @@ export default {
       await this.getCategory(),
       await this.getCateg()
       await this.getProducts()
+      console.log(this.$route.path)
+      console.log(window.location.href)
   },
   methods: {
     ...mapActions(['getCategory']),
