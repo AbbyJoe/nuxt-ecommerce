@@ -10,10 +10,7 @@
         <div class="px-24 pb-12">
             <nuxt-link to="/collections" class="text-green flex text-lg"><img class="inline w-6 pr-1 h-6" src="../../../assets/left-arrow.svg" alt="left-arrow"> Back</nuxt-link>
         </div>
-        <div v-if="loading" class="text-center mt-5">
-            <div id="loading"></div>
-        </div>
-        <div v-if="!loading" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div class="text-center">
             <img :src="singleProduct.image" class="inline w-auto md:h-3/6 h-48" alt="">
         </div>
@@ -48,11 +45,16 @@ import {mapState} from 'vuex'
 export default {
   components: { Banner },
     name: 'product-name',
+    async asyncData({ store, error, params }) {
+    try {
+      await store.dispatch('getSingleProduct', params.id)
+    } catch (e) {
+      error(e)
+    }
+  },
     data(){
         return {
-            id: this.$route.params.id,
             quantity: 1,
-            loading: false,
             tempcart: [],
             success: '',
             close: false
@@ -60,9 +62,6 @@ export default {
     },
      computed: {
         ...mapState(['singleProduct']),
-    },
-    async mounted() {
-        await this.getProduct()
     },
     methods: {
         addCart() {
@@ -78,15 +77,6 @@ export default {
             }, 3000)
             this.$store.commit("addToCart", {...item});
         },
-        async getProduct() {
-            this.loading = true
-            try {
-                await this.$store.dispatch('getSingleProduct', this.id)
-                this.loading = false
-            } catch (error) {
-                    
-            }
-        }
     }
 }
 </script>

@@ -89,5 +89,11 @@ export const state = () => ({
       const response = await this.$axios.$get(`products/categories`)
       commit('GET_CATEGORIES', response)
       return response
-  }
+    },
+    // get product under category
+    async getProductUnderCategory({commit}, id) {
+      const response = await this.$axios.$get(`products/category/${id}`)
+      commit('GET_PRODUCTS', response)
+      return response
+    }
   };

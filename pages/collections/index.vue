@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="products">
         <section>
             <div class="px-10 flex justify-between items-center ">
                 <p @click="showCategories = !showCategories" class="cursor-pointer text-lg">Categories <svg class="inline" width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,10 +17,7 @@
                     </div>
                 </div>
             </transition>
-            <div v-if="loading" class="text-center mt-5">
-                <div id="loading"></div>
-            </div>
-            <div v-if="!loading" class="px-10 py-10 grid grid-cols-1 gap-10 md:grid-cols-3 text-center">
+            <div class="px-10 py-10 grid grid-cols-1 gap-10 md:grid-cols-3 text-center">
                 <product-layout v-for="product in products" :id="product.id" :key="product.id" :title="product.title" :image="product.image" :price="product.price"></product-layout>
             </div>
             <banner></banner>
@@ -31,38 +28,31 @@
 <script>
 import Banner from '../../components/UI/banner.vue'
 import productLayout from '../../components/UI/product-layout.vue'
-import {mapActions, mapState} from 'vuex'
+import {mapState} from 'vuex'
 export default {
   components: { productLayout, Banner },
-    data() {
-    return {
-        name:'All',
-        showCategories: false,
-        products: [],
-        loading: false
+  async asyncData({ store, error }) {
+    try {
+        await Promise.all([
+        store.dispatch('getCategory'),
+        store.dispatch('getProducts'),
+      ])
+    } catch (e) {
+      error(e)
     }
   },
+    data() {
+      return {
+        name:'All',
+        showCategories: false,
+      }
+    },
   computed:{
-    ...mapState(['categories']),
-  },
-  async mounted() {
-      await this.getCategory(),
-      await this.getCateg()
-      await this.getProducts()
-      console.log(this.$route.path)
-      console.log(window.location.href)
+    ...mapState(['categories', 'products']),
   },
   methods: {
-    ...mapActions(['getCategory']),
-    async getProducts() {
-        this.loading = true
-        const res = await this.$axios.$get('products')
-        this.products = res
-        this.loading = false
-    },
     async getCateg(categ) {
-        const res = await this.$axios.$get(`products/category/${categ}`)
-        this.products = res
+        await this.$store.dispatch('getProductUnderCategory', categ)
         this.name = categ
         this.showCategories = false
     }

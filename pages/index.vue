@@ -19,7 +19,7 @@ import BannerHeader from '../components/UI/banner-header.vue'
 import banner from '../components/UI/banner.vue'
 import productLayout from '../components/UI/product-layout.vue'
 import Services from '../components/UI/services.vue'
-import {mapState, mapActions} from 'vuex'
+import {mapState} from 'vuex'
 export default {
   components: { 
     productLayout,
@@ -28,19 +28,16 @@ export default {
     ArrowIcon,
     BannerHeader,
   },
-  data() {
-      return {
-      }
+  async asyncData({ store, error }) {
+    try {
+      await store.dispatch('getAllproducts')
+    } catch (e) {
+      error(e)
+    }
   },
    computed: {
     ...mapState(['allProducts']),
   },
-  async mounted() {
-      await this.getAllproducts()
-  },
-  methods: {
-    ...mapActions(['getAllproducts']),
-  }
 }
 </script>
 
