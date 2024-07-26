@@ -18,7 +18,7 @@
                 </div>
             </transition>
             <div class="px-10 py-10 grid grid-cols-1 gap-10 md:grid-cols-3 text-center">
-                <product-layout v-for="product in products" :id="product.id" :key="product.id" :title="product.title" :image="product.image" :price="product.price"></product-layout>
+                <product-layout v-for="product in products" :key="product.id" v-bind="product"></product-layout>
             </div>
             <banner></banner>
         </section>
