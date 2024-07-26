@@ -7,7 +7,7 @@
                 <nuxt-link to="/collections" class="text-black">Collections</nuxt-link>
                 <nuxt-link to="/about-us" class="text-black">About Us</nuxt-link>
                 <nuxt-link to="/contact" class="text-black">Contact</nuxt-link>
-                <p class="font-light text-sm">&copy; CASSIOPEIA 2021</p>
+                <p class="font-light text-sm">&copy; CASSIOPEIA {{ new Date().getFullYear() }}</p>
             </section>
         </div>
         <div class="md:space-y-10 space-y-6 md:py-10 py-0">
